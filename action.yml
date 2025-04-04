@@ -1,6 +1,6 @@
-# action.yml
+# action.yaml
 name: 'Telegram File Uploader'
-description: 'Uploader your GitHub action files to Telegram via Telethon'
+description: 'Upload your GitHub Action files to Telegram via Telethon'
 inputs:
   to-who:
     description: 'Send to who'
@@ -11,6 +11,9 @@ inputs:
   files:
     description: 'Files (one file per line)'
     required: true
+  buttons:
+    description: 'Inline buttons in JSON format'
+    required: false
 outputs:
   status:
     description: 'Command status'
@@ -21,6 +24,7 @@ runs:
     - "--to=${{ inputs.to-who }}"
     - "--message=${{ inputs.message }}"
     - "--files=${{ inputs.files }}"
+    - "--buttons=${{ inputs.buttons }}"
 branding:
   icon: 'upload-cloud'
   color: 'green'
